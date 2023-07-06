@@ -4,6 +4,8 @@ import morgan from "morgan";
 import path from "path";
 import 'dotenv/config';
 import './src/database/db_conexion'
+import tareasRouter from "./src/routes/tareas.routes";
+
 
 const app = express();
 // puertos
@@ -18,3 +20,4 @@ const app = express();
     app.use(express.static(path.join(__dirname, '/public')));
 
 // rutas
+app.use('/apitareas', tareasRouter);
