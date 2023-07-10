@@ -21,3 +21,13 @@ export const crearTarea = async (req, res)=>{
         res.status(404).json({mensaje: 'Error al crear la tarea'})
     }
 };
+
+export const eliminarTarea = async (req,res)=>{
+    try {
+        await Tarea.findByIdAndDelete(req.params.id);
+        res.status(200).json({mensaje: 'La tarea fue eliminada de forma correcta'});
+    } catch (error) {
+        console.log(error);
+        res.status(404).json({mensaje: 'Error al eliminar la tarea'})
+    }
+}
