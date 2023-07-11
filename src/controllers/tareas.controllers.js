@@ -1,3 +1,4 @@
+import { validationResult } from 'express-validator';
 import Tarea from '../models/tarea';
 
 export const obtenerTareas = async (req, res)=>{
