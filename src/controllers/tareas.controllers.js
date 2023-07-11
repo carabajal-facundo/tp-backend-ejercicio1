@@ -28,6 +28,16 @@ export const eliminarTarea = async (req,res)=>{
         res.status(200).json({mensaje: 'La tarea fue eliminada de forma correcta'});
     } catch (error) {
         console.log(error);
-        res.status(404).json({mensaje: 'Error al eliminar la tarea'})
+        res.status(404).json({mensaje: 'Error al eliminar la tarea'});
+    }
+}
+
+export const editarTarea = async (req,res)=>{
+    try {
+        await Tarea.findByIdAndUpdate(req.params.id, req.body);
+        res.status(200).json({mensaje: 'La tarea se logro modificar'});
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({mensaje: 'Error al editar la tarea'});
     }
 }
